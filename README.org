@@ -1,0 +1,67 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+TITLE: Colab Ideas
+#+AUTHOR: Jérémy Barbay
+#+EMAIL: jeremy@barbay.cl
+#+DESCRIPTION: Ideas of exercises in Colab
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 24.4.1 (Org mode 8.2.5h)
+#+OPTIONS: texht:t
+#+DATE: \today
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS:
+#+LATEX_HEADER:
+#+LATEX_HEADER_EXTRA: \usepackage{fullpage}
+
+Here I liste ideas of exercises and active sessions, to be implemented in colab, adding tags to specify the concepts explored by the exercise or activity. When implemented, I add a link to the Python Notebook(s) implementing the idea of exercise.
+
+
+* Parrot: Extend the functionalities of a function implementing a parrot.                                        :Strings:IfElifElse:CC1002:
+** Temas vistos sin aprofondizaje
+    - while,
+    - break,
+    - Programas Interactivos,
+** Objetivos de aprendizaje
+   En su solucion, el alumno debe demostrar su capacidad a 
+    - usar los operadores booleanos =and= y =or=;
+    - usar structuras =if=, =elif= y =else=;
+    - usar varias operaciones sobre strings (que puede encontrar con =help(str)=).
+    - usar la funcion =help=
+** Instructions
+  Consider the following basic program:
+  #+BEGIN_SRC python
+  string = input("kwak! ")
+  while True
+    if string.upper() == "HOLA!":
+      print("Holi!")
+    elif string == "Holi":
+      print("Hola!")
+    elif string ==""
+      break
+    else:
+      print(string+"!")
+  print("Ciao!")
+  #+END_SRC
+  Check the documentation of the =str= data structure (execute =help(str)= in a code cell)
+
+  Para evaluar su rendimiento en la actividad, preguntense si usaron cada una de las funciones siguientes:
+
+    1. [ ] or (e.g. =string == "hola"= or =string =="holi"=)
+    2. [ ] + (e.g. =string+"!"=)
+    3. [ ] =string.upper()= (e.g. =print(string.upper()=)
+    4. [ ] =string.casefold()=
+    5. [ ] =string.beginswith()= o =string.endswith()=
+    6. [ ] and (e.g. =string.startswith("Hey!") and string.endswith("!")=)
+* Scalable recipe: Given your favorite recipe, program a function scaling the ingredients (cleverly: no half eggs) for the amount of serving requested  :functions:integerDivision:IfElifElse:CC1002:
+* Shell Drawing: Using Turtle and For loops, draw series of triangle, up to form a shell :Turtle:For:CC1002:
+* ROT13 Code: implement rot13(string), which adds 13 modulo 26 to each alphabetic letter of a string. :str:ord:IfElifElse:modulo:CC1002:
+* Cesar Code: implement cesar(string,shift), which adds shift modulo 26 to each alphabetic letter of a string. :str:ord:modulo: 
+* Bible Code: implement rot13(string,shifts), which adds shift[i%len(shift)] modulo 26 to the ith letter of a string. :str:ord:modulo: 
+* Cipher Bomb Cesar: implement decipherCesar(cipher,dictionary), which returns the strings which words match a maximum of those in the dictionary while coding to cipher via some cesar code :bruteForce:Dictionaries:
+* Cipher Bomb Bible: implement decipherBible(cipher,dictionary,lenght), which returns the strings which words match a maximum of those in the dictionary while coding to cipher via some bible code of lenght at most length :bruteForce:Dictionaries:
+* Hanoi Tower Puzzle: implement a function giving the sequence of moves solving the Hanoi puzzle (Bonus: use a library which animates the discs) :Recursion:
+* Hanoi Diagram: draw the diagram of all states of a Hanoi puzzle of $n$ disks :Recursion:svgDraw:
+* Disk Pile Puzzle: implement a function giving the sequence of moves solving the Disk Pile puzzle (variant of Hanoi with some disks of same size) :Recursion:
+* Cheese Tower Puzzle: Solve the Cheese Tower puzzle, variant of the Hanoi tower where each disk can support at most the double of its weight :recursion: 
