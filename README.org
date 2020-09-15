@@ -64,4 +64,44 @@ Here I liste ideas of exercises and active sessions, to be implemented in colab,
 * Hanoi Tower Puzzle: implement a function giving the sequence of moves solving the Hanoi puzzle (Bonus: use a library which animates the discs) :Recursion:
 * Hanoi Diagram: draw the diagram of all states of a Hanoi puzzle of $n$ disks :Recursion:svgDraw:
 * Disk Pile Puzzle: implement a function giving the sequence of moves solving the Disk Pile puzzle (variant of Hanoi with some disks of same size) :Recursion:
-* Cheese Tower Puzzle: Solve the Cheese Tower puzzle, variant of the Hanoi tower where each disk can support at most the double of its weight :recursion: 
+* Cheese Tower Puzzle: variant of the Hanoi tower where each disk can support at most the double of its weight :recursion:CC3001:CC4102: 
+
+ I always tell student that in the Hanoi puzzle, one cannot put a large disk on top of a smaller one because it would break, an argument which would not hold in practice if the difference of size is small enough. An interesting variant is one where the rule is about the (cumulated) weight that each disc can support (like a camembert cheese can support another one, but not a whole pile of them).
+
+*** How many moves are required to move a tower of $n$ disks if allowing a disk to support at most the double of its weight, and the weights of the disks are a linear sequence (e.g. $1,2,3,4,\ldots$)?
+    
+   - ANSWER: none, a tower of height more than $6$ cannot exist!
+   - PROOF:
+     - Solve $\sum_{i=1}^{n-1} i > 2n$
+     - $\frac{n(n-1)}{2} > 2n$
+     - $n-1>4$
+     - $n>5$
+
+*** How many moves are required to move a Hanoi tower of $n$ disks if allowing a disk to support at most the double of its weight, and the weights of the disks are a quadratic sequence (e.g. $1,4,9,16,25,36,49,64,81\ldots$)?
+
+    - ANSWER: none, a tower of height more than $6$ cannot exist:
+    - PROOF:
+      - $1+4+9+16+25+36+49=140 > 2*64 =128$
+
+*** How many moves are required to move a tower of $n$ disks if allowing a disk to support at most the double of its weight, and the weights of the disks are an exponential sequence (e.g. $1,2,4,8,16,32,64,128,256\ldots$)?
+
+    - Of course, the exponential sequence is the smaller one for which such cumulative rule could work:
+      - $\sum_{i=1}^{n-1} 2^i > 2*2^n = 2^{n+1}$
+    - Yet such a Cheese tower requires less moves than a Hanoi Tower for $n>=3$:
+   | n    | 1 | 2 | 3 |  4 |    5 |    6 |    7 |     8 | ... |
+   |------+---+---+---+----+------+------+------+-------+-----|
+   | H(n) | 1 | 3 | 7 | 15 |   31 |   63 |  127 |   255 | ... |
+   | C(n) | 1 | 3 | 5 | 10 | <=21 | <=43 | <=87 | <=175 | ... |
+    - The recursive formula (and algorithm) is 
+      C(n) = 2*C(n-1)+1 if n>4 and from the array above otherwise.
+    - The proof of optimality resides in the observation that,
+      - given the rule that a disc can support at most $2$ times its weight (summed over all discs it supports)
+      - any peg with such an inversion is frozen and cannot support any more disc.
+	- (when one disc supports a disc larger than it, it is the double and it can't support ANY other disc)
+      - Hence this trick can be used only for the top discs and not the bottom ones (which once inverted could not support any more discs).
+    - The code to check such solution is at 
+https://colab.research.google.com/drive/1RnQFlUfL6iptEmHExkwft2iDigIAjRYD?usp=sharing
+** Cheese Tower Puzzle Diagram              :recursion:drawSVG:CC3001:CC4102: 
+* Selenite Tower Puzzle: variant of the Hanoi tower where one inserts and removes disks from the middle of the tower  :recursion:CC4102: 
+** Selenite Tower Puzzle Diagram
+* Operations on IMDB Graph: recover the IMDB graph and runs a graph algoritm on it.
